@@ -24,7 +24,7 @@ export default function Register() {
       email,
       whatsapp,
       city,
-      uf
+      uf,
     };
 
     try {
@@ -33,11 +33,10 @@ export default function Register() {
       alert(`Seu ID de acesso: ${response.data.id}`);
 
       history.push('/');
-    } catch(err) {
-      console.log(err)
+    } catch (err) {
       alert('Erro no cadastro, tente novamente.');
-    };
-  };
+    }
+  }
 
   return (
     <div className="register-container">
@@ -47,55 +46,51 @@ export default function Register() {
 
           <h1>Cadastro</h1>
           <p>Faça seu cadastro, entre na plataforma e ajude pessoas a encontrarem os casos da sua ONG.</p>
-          
-          <Link className="back-link" to="/" >
+
+          <Link className="back-link" to="/">
             <FiArrowLeft size={16} color="#E02041" />
-            Voltar para a página de logon
+            Não tenho cadastro
           </Link>
         </section>
 
         <form onSubmit={handleRegister}>
-          <input
+          <input 
             placeholder="Nome da ONG"
             value={name}
             onChange={e => setName(e.target.value)}
           />
-          
-          <input
-            type="email"
-            placeholder="E-mail" 
+
+          <input 
+            type="email" 
+            placeholder="E-mail"
             value={email}
             onChange={e => setEmail(e.target.value)}
           />
 
-          <input
+          <input 
             placeholder="WhatsApp"
             value={whatsapp}
             onChange={e => setWhatsapp(e.target.value)}
           />
 
           <div className="input-group">
-            <input
+            <input 
               placeholder="Cidade"
               value={city}
               onChange={e => setCity(e.target.value)}
             />
 
-            <input
-              placeholder="UF"
+            <input 
+              placeholder="UF" 
               style={{ width: 80 }}
               value={uf}
               onChange={e => setUf(e.target.value)}
             />
           </div>
 
-            <button className="button" type="submit">Cadastrar</button>
+          <button className="button" type="submit">Cadastrar</button>
         </form>
       </div>
     </div>
   );
 }
-
-// style={{ width:80 }} -> todo componente no React tem a tag style e se pode passar um objeto do JavaScript
-// o primeiro par de chaves {} indica que está sendo incluído um código JavaScript dentro do HTML
-// o segundo par de chaves {} indica que está sendo incluído um objeto do JavaScript, onde se pode declarar um CSS e se tem todas as propriedades do CSS para utilizar
